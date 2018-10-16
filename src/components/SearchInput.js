@@ -13,12 +13,15 @@ export default class SearchInput extends Component {
         this.setState({searchString: e.target.value});
     };
     handleSearch = () => {
-        this.setState({startSearch: true});
+        const {searchString} = this.state;
+        this.setState({startSearch: true}, ()=>this.props.data(searchString));
+        this.setState({error: this.state.searchString});
     };
+
     render() {
-        if (!this.state.searchString && this.state.startSearch) {
-            throw new Error('Enter search string');
-        }
+        // if (!this.state.error && this.state.startSearch) {
+        //     throw new Error('Enter search string');
+        // }
         return(
             <React.Fragment>
                 <input type="text" onChange={this.handleInput}/>
@@ -29,8 +32,6 @@ export default class SearchInput extends Component {
     }
 }
 
-SearchInput.propTypes = {
-    data: PropTypes.func.isRequired,
-};
+
 
 

@@ -4,16 +4,16 @@ import cn from 'classnames';
 
 export default class Filter extends PureComponent {
     handleFilter = (e) => {
-        this.props.data(`FILTER_BY_${(e.target.innerText).replace( /\s/g, '').toUpperCase()}`)
+        this.props.data(`SEARCH_BY_${(e.target.innerText).replace( /\s/g, '').toUpperCase()}`)
     };
     render() {
-        const {searchItems, title, alternate} = this.props;
+        const {searchItems, title, alternate, activeFilter} = this.props;
         return (
             <div className={cn('search-by', {alternate})}>
                 <div className="search-by-title">{title}</div>
                 {searchItems.map((item, idx) =>
                     <div
-                        className={cn('search-by-item', {active: item.active})}
+                        className={cn('search-by-item', {active: item.title.toLowerCase() === activeFilter})}
                         key={`search-by-${idx}`}
                         onClick={this.handleFilter}
                     >
