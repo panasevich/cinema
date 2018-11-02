@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Filter tests renders correctly 1`] = `
+<div
+  className="search-by"
+>
+  <div
+    className="search-by-title"
+  >
+    Tile
+  </div>
+  <div
+    className="search-by-item"
+    onClick={[Function]}
+  >
+    filter1
+  </div>
+  <div
+    className="search-by-item"
+    onClick={[Function]}
+  >
+    filter2
+  </div>
+  <div
+    className="search-by-item"
+    onClick={[Function]}
+  >
+    filter3
+  </div>
+</div>
+`;

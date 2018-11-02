@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movie item tests renders correctly 1`] = `
+<div
+  className="col-sm-4"
+  style={
+    Object {
+      "margin": "15px 0",
+    }
+  }
+>
+  <div
+    className="card"
+  >
+    <img
+      alt="Card image cap"
+      className="card-img-top"
+      src="url"
+    />
+    <div
+      className="card-body"
+    >
+      <h5
+        className="card-title"
+      >
+        Title
+      </h5>
+      <h6
+        className="card-subtitle"
+      >
+        2005
+      </h6>
+      <div>
+        action
+      </div>
+      <div>
+        romance
+      </div>
+      <button
+        aria-label={null}
+        className="btn btn-secondary"
+        onClick={[Function]}
+      >
+        <a
+          href="/movie/undefined"
+          onClick={[Function]}
+        >
+          View
+        </a>
+      </button>
+    </div>
+  </div>
+</div>
+`;

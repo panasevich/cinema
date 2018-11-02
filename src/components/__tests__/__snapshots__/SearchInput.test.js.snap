@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search input tests renders correctly 1`] = `
+Array [
+  <input
+    onChange={[Function]}
+    type="text"
+  />,
+  <button
+    onClick={[Function]}
+  >
+    Search
+  </button>,
+]
+`;
