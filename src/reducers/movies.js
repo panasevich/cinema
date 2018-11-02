@@ -3,20 +3,20 @@ export default function movies(state = {}, action) {
         case 'GET__MOVIES__REQUESTED':
             return {
                 success: false,
-                loading: true
+                loading: true,
             };
         case 'GET__MOVIES__SUCCESS':
             return {
                 success: true,
                 loading: false,
-                data: action.payload
+                data: action.payload,
             };
         case 'MOVIES__IS__LOAD':
             return { success: false };
         case 'GET__MOVIES__FAILURE':
             return {
                 success: false,
-                loading: false
+                loading: false,
             };
         default:
             return state;

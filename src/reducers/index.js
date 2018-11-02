@@ -12,4 +12,4 @@ export default combineReducers({
     movies,
     searchByString,
     movie,
-})
+});

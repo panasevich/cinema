@@ -4,15 +4,14 @@ import PropTypes from 'prop-types';
 export default class ErrorBoundary extends Component {
     constructor(props) {
         super(props);
-        this.state = { error: null, errorInfo: null, hasError: false };
+        this.state = { error: null, hasError: false };
     }
 
-    componentDidCatch(error, errorInfo) {
+    componentDidCatch(error) {
         this.setState({
-            error: error,
-            errorInfo: errorInfo,
-            hasError: true
-        })
+            error,
+            hasError: true,
+        });
     }
 
     render() {
@@ -21,7 +20,7 @@ export default class ErrorBoundary extends Component {
             return (
                 <div className={hasError && 'error'}>
                     {this.props.children}
-                    <div className="error-text">{hasError && error.toString().split(":").pop()}</div>
+                    <div className="error-text">{hasError && error.toString().split(':').pop()}</div>
                 </div>
             );
         }

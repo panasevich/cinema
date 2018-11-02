@@ -12,7 +12,7 @@ export default function HeaderWrap(props) {
             </div>
             {props.children}
         </div>
-    )
+    );
 }
 
 HeaderWrap.propTypes = {

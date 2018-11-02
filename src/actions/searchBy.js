@@ -1,1 +1,1 @@
-export const searchByAction =(action) => ({type: action});
+export const searchByAction = action => ({ type: action });
