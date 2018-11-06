@@ -6,7 +6,8 @@
   "scripts": {
     "eslint": "eslint ./src/**/*.js",
     "start": "webpack-dev-server --mode development --open --hot",
-    "build": "wabpack --mode production"
+    "build": "wabpack --mode production",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +17,7 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^5.1.0",
+    "react-test-renderer": "^16.6.0",
     "redux": "^4.0.1"
   },
   "devDependencies": {
@@ -26,11 +28,15 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^9.2.1",
+    "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.x",
-    "babel-loader": "^8.0.4",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.0-beta.6",
     "babel-plugin-transform-decorators": "^6.24.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "css-loader": "^1.0.0",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
     "eslint": "5.x",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-react-app": "^3.0.4",
@@ -41,16 +47,49 @@
     "eslint-plugin-react": "7.x",
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
+    "jest": "^23.6.0",
     "node-sass": "^4.9.4",
     "postcss-loader": "^3.0.0",
     "react-router-dom": "^4.3.1",
     "reactstrap": "^6.5.0",
     "redux-saga": "^0.16.2",
+    "regenerator-runtime": "^0.12.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "url-loader": "^1.1.2",
     "webpack": "^4.21.0",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.9"
+    "webpack-dev-server": "^3.1.9",
+    "whatwg-fetch": "^3.0.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,mjs}"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
+      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}"
+    ],
+    "testEnvironment": "jsdom",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__mocks__/fileMock.js"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ]
   }
 }

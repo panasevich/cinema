@@ -7,7 +7,7 @@ describe('Movie item tests', () => {
     it('renders correctly', () => {
         const imgPath = 'url';
         const title = 'Title';
-        const year = 2005;
+        const year = '2005';
         const genre = ['action', 'romance'];
         const tree = renderer
             .create(

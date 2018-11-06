@@ -1,1 +1,1 @@
-export const sortByAction =(action) => ({type: action});
+export const sortByAction = (action) => ({ type: action });

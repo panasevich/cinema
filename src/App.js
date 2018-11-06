@@ -5,9 +5,8 @@ import createSagaMiddleware from 'redux-saga';
 import { createStore, applyMiddleware, compose } from 'redux';
 import CombineReducers from './reducers/index';
 import rootSaga from './saga';
-import Search from './containers/Search';
-import Movies from './containers/Movies';
-import Movie from './containers/Movie';
+import ContainerSearchPage from './features/searchPage/ContainerSearchPage';
+import Movie from './features/Movie';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/styles/styles.scss';
 
@@ -28,9 +27,8 @@ class App extends Component {
             <Provider store={store}>
                 <Router>
                     <div>
-                        <Route exact path="/" render={() => (<Search />)} />
+                        <Route exact path="/" render={() => (<ContainerSearchPage />)} />
                         <Route path="/movie/:movieId" component={Movie} />
-                        <Route path="/" render={() => (<Movies />)} />
                     </div>
                 </Router>
             </Provider>

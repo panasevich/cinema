@@ -8,6 +8,7 @@ Array [
   />,
   <button
     onClick={[Function]}
+    type="button"
   >
     Search
   </button>,
