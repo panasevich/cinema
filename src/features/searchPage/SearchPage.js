@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import MovieItem from '../../components/MovieItem';
 
 export default class Search extends Component {
     handleChangeField = (e) => {
@@ -74,7 +75,16 @@ export default class Search extends Component {
                     </div>
                 </div>
                 <div className="scroll-row">
-                    {result}
+                    {result ? result.map(item => (
+                        <MovieItem
+                            key={item.id}
+                            title={item.title}
+                            imgPath={item.poster_path}
+                            genre={item.genres}
+                            year={item.release_date}
+                            movieId={item.id}
+                        />)) : <h1 className="text-center w-100 p-4">No films found</h1>
+                    }
                 </div>
             </Fragment>
         );

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import MovieItem from '../../components/MovieItem';
 import SearchPage from './SearchPage';
 
 const sortByArr = [{ title: 'Date' }, { title: 'Rating' }];
@@ -13,11 +12,9 @@ class Movies extends Component {
         this.infinityList = null;
         this.state = {
             items: [],
-            loading: false,
             sortBy: 'rating',
             start: 0,
             searchBy: 'title',
-            searchByString: '',
         };
     }
 
@@ -28,16 +25,6 @@ class Movies extends Component {
                 this.setState((prevState) =>
                     ({ start: prevState.start + MOVIES_LIMIT, items: prevState.items.concat(data.data) }));
             });
-        this.infinityList = window;
-        this.infinityList.addEventListener('scroll', this.onScroll, false);
-    }
-
-    componentDidUpdate(prevProps, prevState) {
-        if (prevState.items.length !== this.state.items.length) {
-            /*eslint-disable */
-            this.setState({ loading: false });
-            /* eslint-enable */
-        }
     }
 
     handleSearchClick = (value) => {
@@ -72,32 +59,8 @@ class Movies extends Component {
         });
     };
 
-    onScroll = () => {
-        if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 50) {
-            if (!this.state.loading) {
-                this.setState({ loading: true });
-                fetch(`http://react-cdp-api.herokuapp.com/movies${this.getRequestParams()}`)
-                    .then(response => response.json())
-                    .then(data => this.setState((prevState) =>
-                        ({ start: prevState.start + MOVIES_LIMIT, items: prevState.items.concat(data.data) })));
-            }
-        }
-    };
-
-    renderItems = () => {
-        const { items } = this.state;
-        return items ? items.map(item => (
-            <MovieItem
-                key={item.id}
-                title={item.title}
-                imgPath={item.poster_path}
-                genre={item.genres}
-                year={item.release_date}
-                movieId={item.id}
-            />)) : <h1 className="text-center w-100 p-4">No films found</h1>;
-    };
-
     render() {
+        const { items } = this.state;
         return (
             <SearchPage
                 sortBy={sortByArr}
@@ -107,7 +70,7 @@ class Movies extends Component {
                 searchByClick={this.handleSearchClick}
                 searchByActive={this.state.searchBy}
                 searchBy={searchByArr}
-                result={this.renderItems()}
+                result={items}
             />
 
         );
